@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | SuperKart</title>
+  <meta name="description" content="Get in touch with the SuperKart team about becoming a vendor, partnerships, or order support." />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body data-page="contact">
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <section class="section--tight bg-mist">
+      <div class="container">
+        <div class="section-heading section-heading--center" style="max-width:640px">
+          <h2>Talk to the SuperKart team</h2>
+          <p>Questions about becoming a vendor, partnership enquiries, or support with an order, we're here for it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-details">
+          <div class="contact-detail">
+            <p>Email</p>
+            <p>hello@superkart.ng</p>
+          </div>
+          <div class="contact-detail">
+            <p>Support</p>
+            <p>support@superkart.ng</p>
+          </div>
+          <div class="contact-detail">
+            <p>Phone</p>
+            <p>+234 800 000 0000</p>
+          </div>
+          <div class="contact-detail">
+            <p>Office</p>
+            <p>Abuja, Nigeria</p>
+          </div>
+        </div>
+
+        <form class="form-card" id="contactForm" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span>Full name</span>
+              <input type="text" name="name" required minlength="2" maxlength="100" placeholder="Amaka Johnson" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span>Email address</span>
+              <input type="email" name="email" required maxlength="254" placeholder="you@example.com" autocomplete="email" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>What's this about?</span>
+            <select name="topic">
+              <option>General enquiry</option>
+              <option>Becoming a vendor</option>
+              <option>Order support</option>
+              <option>Partnership</option>
+              <option>Press</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" required minlength="10" maxlength="2000" placeholder="Tell us a bit about what you need"></textarea>
+          </label>
+
+          <!-- Honeypot field: hidden from real users via CSS. Bots that
+               auto-fill every input will trip this, and the backend
+               silently discards submissions where it's filled in. -->
+          <label class="field honeypot-field" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+          <input type="hidden" name="formRenderedAt" id="formRenderedAt" />
+
+          <button type="submit" class="btn btn--primary" id="contactSubmit">Send message</button>
+
+          <p id="contactFormMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/contact.js"></script>
+</body>
+</html>
