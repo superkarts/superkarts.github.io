@@ -38,10 +38,12 @@ css/
   base.css        Design tokens (colors, fonts) and resets
   layout.css      Navbar and footer
   components.css  Hero, cards, pricing, FAQ, forms
+  icons.css       Icon badges and illustration panel styles
 js/
   config.js       API_BASE_URL and other cross-app links, per environment
   include.js      Loads the shared navbar/footer partials into every page
   contact.js      Contact form submission logic (calls the backend API)
+  icons.js        Shared SVG icon library, injected via data-icon attributes
 partials/
   navbar.html     Shared navbar markup, injected via include.js
   footer.html     Shared footer markup, injected via include.js
@@ -81,8 +83,50 @@ backend's environment variables, or the browser will be blocked by CORS.
 - Update `js/config.js` with real API, marketplace, and vendor-portal URLs.
 - Update the placeholder social links in `partials/footer.html`.
 - Update contact details in `partials/footer.html` and `contact.html`.
-- Swap the Sora/Manrope Google Fonts links in each page's `<head>` if you'd
-  rather match another reference site's exact typography.
+- Swap the General Sans/Inter font links in each page's `<head>` if you'd
+  rather match another reference site's exact typography (see "Design
+  tokens" below).
+- Replace the illustration panels with real photography (see "Icons and
+  imagery" below).
+
+## Design tokens
+
+Colors and fonts are defined once in `css/base.css`, and icon/illustration
+styles live in `css/icons.css`. Brand colors were sampled directly from the
+logo file:
+
+- Navy `#104377` — primary brand color
+- Orange `#EE601C` — accent / calls to action
+
+Fonts are **General Sans** (headings, via Fontshare) and **Inter** (body,
+via Google Fonts). I couldn't extract kasuwa.com's exact CSS through my
+tools, so General Sans is my closest visual match to their heading
+typeface, not a confirmed exact match. If you check their site in browser
+DevTools and it's a different font, swap the `<link>` tags in each page's
+`<head>` and the `--font-display` / `--font-body` variables in
+`css/base.css`.
+
+## Icons and imagery
+
+Every icon on the site is a hand-written inline SVG, defined once in
+`js/icons.js` and injected wherever a `data-icon="name"` attribute appears.
+To add a new icon, add it to the `ICONS` object in that file.
+
+Photo-style sections (the illustration panels on the About and Services
+pages, and the "Run your store from anywhere" panels on Home) currently use
+styled gradient panels with an icon, not real photography. I didn't embed
+real photos because I can't verify licensing on images from web search
+results, and hotlinking to third-party sites isn't reliable or appropriate
+for a commercial site.
+
+**To swap in real photos:** replace the `.illustration` divs with an `<img>`
+(the surrounding CSS already handles rounded corners and sizing). Good
+free, commercial-use sources: [Unsplash](https://unsplash.com) or
+[Pexels](https://pexels.com). Suggested searches per section:
+- Home "Run your store from anywhere" → "small business owner phone"
+- Home "Find and order from verified sellers" → "delivery package handoff"
+- About hero → "Nigeria market street" or "African entrepreneur"
+- Services hero strip → "storefront", "handshake business", "mobile payment"
 
 ## Deploying
 

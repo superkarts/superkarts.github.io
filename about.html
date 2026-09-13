@@ -8,10 +8,12 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
 </head>
 <body data-page="about">
   <div id="navbar-placeholder"></div>
@@ -19,9 +21,14 @@
   <main>
     <section class="section--tight bg-mist">
       <div class="container">
-        <div class="section-heading" style="max-width:42rem">
-          <h2>A marketplace for how Nigerian businesses actually trade</h2>
-          <p>SuperKart started from a simple observation: the shop owner selling on WhatsApp, the wholesaler supplying five markets, and the distributor running a warehouse all need the same three things, a storefront, a way to reach buyers, and a safe way to get paid. Most platforms only build for one of them.</p>
+        <div class="showcase-grid" style="margin-bottom:0">
+          <div>
+            <h2>A marketplace for how Nigerian businesses actually trade</h2>
+            <p style="margin-top:1rem;color:var(--slate);line-height:1.7">SuperKart started from a simple observation: the shop owner selling on WhatsApp, the wholesaler supplying five markets, and the distributor running a warehouse all need the same three things, a storefront, a way to reach buyers, and a safe way to get paid. Most platforms only build for one of them.</p>
+          </div>
+          <div class="illustration illustration--navy">
+            <div class="illustration__icon" data-icon="globe"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -55,14 +62,17 @@
 
         <div class="grid grid--3" style="margin-top:3rem">
           <div class="feature-card" style="background:#fff;border:1px solid var(--line)">
+            <span class="icon-badge icon-badge--orange" data-icon="handshake"></span>
             <h3>Every seller belongs</h3>
             <p>A market woman with twenty products and a distributor with twenty warehouses should both be able to trade online, at a price that fits their business.</p>
           </div>
           <div class="feature-card" style="background:#fff;border:1px solid var(--line)">
+            <span class="icon-badge icon-badge--orange" data-icon="shield"></span>
             <h3>Trust is built, not assumed</h3>
             <p>Every vendor is verified before they can list. Every payment is held until an order is confirmed. Trust is designed into the platform, not left to chance.</p>
           </div>
           <div class="feature-card" style="background:#fff;border:1px solid var(--line)">
+            <span class="icon-badge icon-badge--orange" data-icon="layers"></span>
             <h3>Built on what already works</h3>
             <p>SuperKart runs on ASBData's existing payments, wallet, and identity infrastructure, so it launches on a foundation that already serves real customers.</p>
           </div>
@@ -72,7 +82,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-heading" style="max-width:48rem">
+        <div class="cta-banner cta-banner--navy">
           <h2>An ASBData company</h2>
           <p>SuperKart is developed and operated by ASBData. Vendor payments, verification, and wallet infrastructure are powered by ASBData's existing payments platform.</p>
         </div>
@@ -83,5 +93,6 @@
   <div id="footer-placeholder"></div>
 
   <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/icons.js"></script>
 </body>
 </html>

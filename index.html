@@ -8,17 +8,20 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
 </head>
 <body data-page="index">
   <div id="navbar-placeholder"></div>
 
   <main>
-    <section class="hero bg-mist">
-      <div class="container hero__grid">
+    <section class="hero bg-mist relative">
+      <div class="blob-field"><span class="blob blob--1"></span><span class="blob blob--2"></span></div>
+      <div class="container hero__grid z-1">
         <div>
           <h1>Every business deserves a cart.</h1>
           <p>SuperKart brings retailers, wholesalers, and merchants onto one marketplace, with verified storefronts, bulk trade tools, and payments built on ASBData's infrastructure.</p>
@@ -26,9 +29,19 @@
             <a class="btn btn--primary" data-external="vendorSignup">Start selling</a>
             <a class="btn btn--ghost" data-external="marketplace">Browse the marketplace</a>
           </div>
-          <div class="hero__meta">
-            <span>Retailers &middot; Wholesalers &middot; Merchants</span>
-            <span>Payments held in escrow</span>
+          <div class="trust-strip">
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="shield"></span>
+              <span>Verified vendors</span>
+            </div>
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="wallet"></span>
+              <span>Escrow-protected payments</span>
+            </div>
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="globe"></span>
+              <span>Nationwide reach</span>
+            </div>
           </div>
         </div>
 
@@ -96,16 +109,19 @@
 
         <div class="grid grid--3" style="margin-top:3rem">
           <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="storefront"></span>
             <span class="step-card__number">01</span>
             <h3>List your store</h3>
             <p>Register as a retailer, wholesaler, or merchant, verify your details, and set up your storefront in minutes.</p>
           </div>
           <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="handshake"></span>
             <span class="step-card__number">02</span>
             <h3>Reach the right buyers</h3>
             <p>Consumers find you on the marketplace. Businesses find you through Connect &amp; Quote for bulk orders.</p>
           </div>
           <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="wallet"></span>
             <span class="step-card__number">03</span>
             <h3>Get paid safely</h3>
             <p>Every order is paid through SuperKart Pay and held until the order is confirmed, so both sides are protected.</p>
@@ -123,30 +139,33 @@
 
         <div class="grid grid--3" style="margin-top:3rem">
           <div class="segment-card">
+            <span class="icon-badge icon-badge--light" data-icon="storefront"></span>
             <h3>Retailer</h3>
             <p>Sell directly to everyday customers, from a phone or a shop counter.</p>
             <ul>
-              <li><span class="dot"></span>Free storefront to start</li>
-              <li><span class="dot"></span>Simple checkout and receipts</li>
-              <li><span class="dot"></span>Grows with your catalog</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Free storefront to start</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Simple checkout and receipts</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Grows with your catalog</li>
             </ul>
           </div>
           <div class="segment-card">
+            <span class="icon-badge icon-badge--light" data-icon="bulk"></span>
             <h3>Wholesaler</h3>
             <p>Supply retailers and businesses in bulk, with minimum order tools built in.</p>
             <ul>
-              <li><span class="dot"></span>Bulk pricing and quotes</li>
-              <li><span class="dot"></span>Verified buyer requests</li>
-              <li><span class="dot"></span>Buyer analytics</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Bulk pricing and quotes</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Verified buyer requests</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Buyer analytics</li>
             </ul>
           </div>
           <div class="segment-card">
+            <span class="icon-badge icon-badge--light" data-icon="layers"></span>
             <h3>Merchant</h3>
             <p>Distribute at scale with a branded storefront and direct system integration.</p>
             <ul>
-              <li><span class="dot"></span>API inventory sync</li>
-              <li><span class="dot"></span>Nationwide visibility</li>
-              <li><span class="dot"></span>Dedicated account manager</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>API inventory sync</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Nationwide visibility</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Dedicated account manager</li>
             </ul>
           </div>
         </div>
@@ -166,20 +185,68 @@
 
         <div class="grid grid--2" style="margin-top:3rem">
           <div class="feature-card">
+            <span class="icon-badge icon-badge--navy" data-icon="shield"></span>
             <h3>Verified storefronts</h3>
             <p>Every vendor is identity-checked before they can list, so buyers know who they're dealing with.</p>
           </div>
           <div class="feature-card">
+            <span class="icon-badge icon-badge--navy" data-icon="handshake"></span>
             <h3>Connect &amp; Quote</h3>
             <p>Retailers request bulk quotes directly from wholesalers and merchants, inside the platform.</p>
           </div>
           <div class="feature-card">
+            <span class="icon-badge icon-badge--navy" data-icon="wallet"></span>
             <h3>Secure checkout</h3>
             <p>Payments are held until an order is confirmed, with wallet, card, transfer, and USSD support.</p>
           </div>
           <div class="feature-card">
+            <span class="icon-badge icon-badge--navy" data-icon="devices"></span>
             <h3>Mobile and desktop apps</h3>
             <p>Manage orders and inventory from the SuperKart app or the desktop dashboard on paid plans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="showcase-grid">
+          <div class="illustration illustration--navy">
+            <div class="illustration__icon" data-icon="devices"></div>
+          </div>
+          <div>
+            <span class="eyebrow">For vendors</span>
+            <h2 style="margin-top:0.75rem">Run your store from anywhere</h2>
+            <p style="margin-top:1rem;color:var(--slate);line-height:1.7">
+              Track orders, update your catalog, and see your payouts from the SuperKart
+              mobile app, or the desktop dashboard if you're managing a bigger operation.
+              Both are included from the Growth plan upward.
+            </p>
+            <ul class="detail-list" style="margin-top:1.5rem">
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Real-time order notifications</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Inventory sync across every channel</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Payout tracking in one place</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="showcase-grid showcase-grid--reverse">
+          <div>
+            <span class="eyebrow">For buyers</span>
+            <h2 style="margin-top:0.75rem">Find and order from verified sellers</h2>
+            <p style="margin-top:1rem;color:var(--slate);line-height:1.7">
+              Search by category or location, compare vendors, and check out in a few taps.
+              Every store carries a verification badge, so you always know who you're
+              buying from.
+            </p>
+            <ul class="detail-list" style="margin-top:1.5rem">
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Search and location filters</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Ratings from real buyers</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Secure, escrow-backed checkout</li>
+            </ul>
+          </div>
+          <div class="illustration illustration--orange">
+            <div class="illustration__icon" data-icon="search"></div>
           </div>
         </div>
       </div>
@@ -199,5 +266,6 @@
   <div id="footer-placeholder"></div>
 
   <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/icons.js"></script>
 </body>
 </html>

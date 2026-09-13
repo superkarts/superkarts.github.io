@@ -8,10 +8,12 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
 </head>
 <body data-page="services">
   <div id="navbar-placeholder"></div>
@@ -23,6 +25,17 @@
           <h2>What SuperKart handles for you</h2>
           <p>From your first listing to your hundredth bulk order, here's what runs behind the scenes.</p>
         </div>
+        <div class="services-hero-strip">
+          <div class="illustration illustration--navy services-hero-strip__panel">
+            <div class="illustration__icon" data-icon="storefront"></div>
+          </div>
+          <div class="illustration illustration--orange services-hero-strip__panel">
+            <div class="illustration__icon" data-icon="handshake"></div>
+          </div>
+          <div class="illustration illustration--mist services-hero-strip__panel">
+            <div class="illustration__icon" data-icon="wallet"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -30,72 +43,79 @@
       <div class="container">
         <div class="detail-grid">
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="shield"></span>
             <h3>Verified storefronts</h3>
             <p>Every vendor completes identity verification before their store goes live, using the same KYC checks ASBData already runs for its payments customers. Buyers can see a verification badge on every listing.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>BVN/NIN-backed verification</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Storefront builder with categories and variants</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Custom store link</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>BVN/NIN-backed verification</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Storefront builder with categories and variants</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Custom store link</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="search"></span>
             <h3>Marketplace discovery</h3>
             <p>Consumers search and filter stores by category and location, browse products, and check out without leaving the app.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Search and category filters</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Ratings and reviews</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>One-tap sharing to WhatsApp and social</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Search and category filters</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Ratings and reviews</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>One-tap sharing to WhatsApp and social</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="handshake"></span>
             <h3>Connect &amp; Quote (B2B trade)</h3>
             <p>Retailers request bulk quotes from wholesalers, and wholesalers request supply from merchants, directly inside SuperKart, replacing the informal calls and market visits this trade usually depends on.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Minimum order quantity tools</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Bulk quote requests</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Verified buyer and seller badges</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Minimum order quantity tools</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Bulk quote requests</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Verified buyer and seller badges</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="wallet"></span>
             <h3>Payments and escrow</h3>
             <p>Checkout runs on SuperKart Pay, built on ASBData's existing payment rails. Funds are held until an order is confirmed, protecting both the buyer and the seller.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Wallet, card, bank transfer, and USSD</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Escrow-backed checkout</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Fast payouts on paid plans</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Wallet, card, bank transfer, and USSD</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Escrow-backed checkout</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Fast payouts on paid plans</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="truck"></span>
             <h3>Delivery and logistics</h3>
             <p>Orders connect to third-party logistics partners at launch, with a dedicated SuperKart delivery option planned as the platform scales.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Order tracking</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Delivery partner integration</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Pickup option for local buyers</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Order tracking</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Delivery partner integration</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Pickup option for local buyers</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="chart"></span>
             <h3>Advertising and growth tools</h3>
             <p>Vendors on paid plans can boost visibility with promoted listings and featured placement, and access sales analytics to see what's working.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Promoted listings</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Featured homepage placement</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Sales and buyer analytics</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Promoted listings</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Featured homepage placement</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Sales and buyer analytics</li>
             </ul>
           </div>
 
           <div class="detail-block">
+            <span class="icon-badge icon-badge--navy" data-icon="devices"></span>
             <h3>Mobile and desktop apps</h3>
             <p>Manage orders, inventory, and payouts from the SuperKart mobile app, with a desktop management dashboard for vendors running larger operations. Both unlock from the Growth tier upward.</p>
             <ul class="detail-list">
-              <li><span class="dot" style="margin-top:0.5rem"></span>Native iOS and Android app</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Desktop dashboard for Growth tier and above</li>
-              <li><span class="dot" style="margin-top:0.5rem"></span>Multi-staff accounts on higher tiers</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Native iOS and Android app</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Desktop dashboard for Growth tier and above</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Multi-staff accounts on higher tiers</li>
             </ul>
           </div>
         </div>
@@ -119,5 +139,6 @@
   <div id="footer-placeholder"></div>
 
   <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/icons.js"></script>
 </body>
 </html>

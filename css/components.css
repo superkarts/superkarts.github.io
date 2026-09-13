@@ -30,15 +30,6 @@
   gap: 0.75rem;
 }
 
-.hero__meta {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  font-size: 0.875rem;
-  color: var(--slate);
-}
-
 @media (min-width: 640px) {
   .hero__actions { flex-direction: row; }
 }
@@ -47,6 +38,22 @@
   .hero__grid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.trust-strip {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+}
+
+.trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
 }
 
 /* ===== Store card collage ===== */
@@ -153,6 +160,8 @@
 }
 
 .step-card__number {
+  display: block;
+  margin-top: 1rem;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.875rem;
@@ -180,6 +189,7 @@
 }
 
 .segment-card h3 {
+  margin-top: 1.25rem;
   color: var(--white);
   font-size: 1.25rem;
   font-weight: 600;
@@ -201,8 +211,8 @@
 
 .segment-card li {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.625rem;
   font-size: 0.9375rem;
   color: var(--navy-100);
 }
@@ -223,6 +233,7 @@
 }
 
 .feature-card h3 {
+  margin-top: 1.25rem;
   font-size: 1.125rem;
   font-weight: 600;
 }
@@ -528,6 +539,7 @@
 }
 
 .detail-block h3 {
+  margin-top: 1.25rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
@@ -548,6 +560,7 @@
 
 .detail-list li {
   display: flex;
+  align-items: center;
   gap: 0.625rem;
   font-size: 0.9375rem;
 }
