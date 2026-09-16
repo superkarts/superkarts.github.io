@@ -1,51 +1,42 @@
-(function () {
-  "use strict";
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  const nav = document.querySelector('.nav');
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Mobile nav toggle now lives in js/include.js, since the navbar itself
-    // is injected after this file's DOMContentLoaded listener would fire.
-
-    // FAQ accordion
-    document.querySelectorAll(".faq-item button").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var item = btn.closest(".faq-item");
-        var wasOpen = item.classList.contains("open");
-        item.parentElement.querySelectorAll(".faq-item").forEach(function (i) {
-          i.classList.remove("open");
-        });
-        if (!wasOpen) item.classList.add("open");
-      });
+  if (nav) {
+    const setScrolled = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    setScrolled();
+    window.addEventListener('scroll', setScrolled, { passive: true });
+  }
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
     });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+  }
 
-    // Pricing monthly/annual toggle
-    var monthlyBtn = document.getElementById("pricingMonthly");
-    var annualBtn = document.getElementById("pricingAnnual");
-    if (monthlyBtn && annualBtn) {
-      var setMode = function (mode) {
-        monthlyBtn.classList.toggle("active", mode === "monthly");
-        annualBtn.classList.toggle("active", mode === "annual");
-        document.querySelectorAll("[data-price-monthly]").forEach(function (el) {
-          el.textContent = mode === "monthly" ? el.dataset.priceMonthly : el.dataset.priceAnnual;
-        });
-        document.querySelectorAll("[data-period-monthly]").forEach(function (el) {
-          el.textContent = mode === "monthly" ? el.dataset.periodMonthly : el.dataset.periodAnnual;
-        });
-      };
-      monthlyBtn.addEventListener("click", function () { setMode("monthly"); });
-      annualBtn.addEventListener("click", function () { setMode("annual"); });
-    }
-
-    // Contact form — static site, no backend yet
-    var contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var msg = document.getElementById("contactFormMsg");
-        if (msg) {
-          msg.textContent = "Thanks — this form isn't wired up to send messages yet. Reach us directly at the email or phone number on this page in the meantime.";
-          msg.classList.add("show");
-        }
-      });
-    }
+  // Generic form handler: prevent real submit, show success message, optional redirect
+  document.querySelectorAll('form[data-mock-submit]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msgId = form.getAttribute('data-message-target');
+      const msg = msgId ? document.getElementById(msgId) : null;
+      if (msg) {
+        msg.textContent = form.getAttribute('data-success-text') || 'Success.';
+        msg.classList.remove('error');
+        msg.classList.add('success', 'show');
+      }
+      const redirect = form.getAttribute('data-redirect');
+      if (redirect) {
+        setTimeout(() => { window.location.href = redirect; }, 900);
+      } else {
+        form.reset();
+      }
+    });
   });
-})();
+});
