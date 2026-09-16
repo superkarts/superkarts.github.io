@@ -1,73 +1,67 @@
-import { EXTERNAL_LINKS, CONTACT } from "./config.js";
+// Injects the shared navbar and footer partials into every page, then wires
+// up the bits that depend on them (mobile menu, active link, scroll state).
+// Runs as a module, so it executes after the DOM is parsed.
 
-async function include(selector, url) {
-  const target = document.querySelector(selector);
-  if (!target) return;
-  const res = await fetch(url);
-  target.innerHTML = await res.text();
-}
-
-function highlightActiveLink() {
-  const current = document.body.dataset.page;
-  document.querySelectorAll("[data-page]").forEach((link) => {
-    if (link.dataset.page === current) {
-      link.setAttribute("aria-current", "page");
-    }
-  });
-}
-
-function wireExternalLinks() {
-  document.querySelectorAll("[data-external]").forEach((el) => {
-    const key = el.dataset.external;
-    if (EXTERNAL_LINKS[key]) {
-      el.setAttribute("href", EXTERNAL_LINKS[key]);
-    }
-  });
-}
-
-function wireMobileNav() {
-  const toggle = document.getElementById("navToggle");
-  const mobile = document.getElementById("navMobile");
-  const iconOpen = document.getElementById("navIconOpen");
-  const iconClose = document.getElementById("navIconClose");
-  if (!toggle || !mobile) return;
-
-  toggle.addEventListener("click", () => {
-    const isOpen = mobile.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    iconOpen.style.display = isOpen ? "none" : "block";
-    iconClose.style.display = isOpen ? "block" : "none";
-  });
-
-  // Close the mobile menu automatically if the viewport grows past the
-  // mobile breakpoint (e.g. rotating a tablet).
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 1024 && mobile.classList.contains("is-open")) {
-      mobile.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      iconOpen.style.display = "block";
-      iconClose.style.display = "none";
-    }
-  });
-}
-
-function fillFooterDetails() {
-  const year = document.getElementById("footerYear");
-  const contact = document.getElementById("footerContact");
-  if (year) year.textContent = new Date().getFullYear();
-  if (contact) contact.textContent = `${CONTACT.email} \u00b7 ${CONTACT.phone} \u00b7 ${CONTACT.address}`;
+async function include(placeholderId, url) {
+  const target = document.getElementById(placeholderId);
+  if (!target) return null;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`${url} responded with ${res.status}`);
+    target.innerHTML = await res.text();
+    return target;
+  } catch (err) {
+    // Most common cause: opening the page as a file:// URL, where fetch()
+    // is blocked. Leaving a visible note beats a silently missing header.
+    console.error("Could not load", url, err);
+    target.innerHTML =
+      '<div style="padding:14px 24px;background:#fef0e7;color:#ee601c;font:14px system-ui;">' +
+      "Couldn't load " + url + " — serve this site over http:// (see README) rather than opening the file directly." +
+      "</div>";
+    return null;
+  }
 }
 
 async function init() {
-  await Promise.all([
-    include("#navbar-placeholder", "/partials/navbar.html"),
-    include("#footer-placeholder", "/partials/footer.html"),
+  const [navTarget] = await Promise.all([
+    include("navbar-placeholder", "partials/navbar.html"),
+    include("footer-placeholder", "partials/footer.html")
   ]);
-  highlightActiveLink();
-  wireExternalLinks();
-  wireMobileNav();
-  fillFooterDetails();
+
+  // Re-run icon injection in case the partials themselves carry data-icon
+  // elements (they don't yet, but keeps this safe if that changes).
+  if (window.SMECartIcons) window.SMECartIcons.render();
+
+  // Footer year (footer now exists in the DOM)
+  const yearEl = document.getElementById("footerYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  if (!navTarget) return;
+
+  // Mark the current page's nav link active, via body[data-page]
+  const page = document.body.dataset.page;
+  if (page) {
+    const link = navTarget.querySelector(`[data-nav="${page}"]`);
+    if (link) link.classList.add("active");
+  }
+
+  // Mobile menu toggle
+  const toggle = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => nav.classList.remove("open"))
+    );
+  }
+
+  // Header stays transparent over the hero until the page scrolls.
+  const header = document.getElementById("siteHeader");
+  if (header) {
+    const setScrolled = () => header.classList.toggle("scrolled", window.scrollY > 40);
+    setScrolled();
+    window.addEventListener("scroll", setScrolled, { passive: true });
+  }
 }
 
 init();

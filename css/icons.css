@@ -1,195 +1,37 @@
-/* ===== Icon badges ===== */
+/* ==========================================================================
+   icons.css — icon badges and illustration panels
+   The SVGs themselves are injected by js/icons.js wherever a data-icon
+   attribute appears; this file only handles their sizing and color context.
+   ========================================================================== */
+
 .icon-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.875rem;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
 }
+.icon-badge svg { width: 22px; height: 22px; }
+.icon-badge--orange { background: var(--orange-tint); color: var(--orange); }
+.icon-badge--navy { background: var(--navy-tint); color: var(--navy); }
+.icon-badge--light { background: rgba(255, 255, 255, 0.14); color: var(--white); }
+.icon-badge--sm { width: 30px; height: 30px; border-radius: 7px; }
+.icon-badge--sm svg { width: 16px; height: 16px; }
 
-.icon-badge svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
+.icon-check { display: inline-flex; color: var(--orange); margin-right: 8px; vertical-align: -3px; }
+.icon-check svg { width: 16px; height: 16px; }
+.bg-navy .icon-check { color: var(--orange-light); }
 
-.icon-badge--orange {
-  background: var(--orange-50);
-  color: var(--orange-500);
-}
-
-.icon-badge--navy {
-  background: var(--navy-50);
-  color: var(--navy-500);
-}
-
-.icon-badge--light {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--white);
-}
-
-.icon-badge--sm {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.625rem;
-}
-.icon-badge--sm svg { width: 1.125rem; height: 1.125rem; }
-
-.icon-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  background: var(--orange-50);
-  color: var(--orange-500);
-  flex-shrink: 0;
-}
-.icon-check svg { width: 0.75rem; height: 0.75rem; }
-
-/* ===== Illustration panels (used in place of photography) ===== */
 .illustration {
-  position: relative;
-  border-radius: 1.5rem;
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 20rem;
 }
-
-.illustration::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.16) 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-  opacity: 0.6;
-}
-
-.illustration--orange {
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
-}
-
-.illustration--navy {
-  background: linear-gradient(135deg, var(--navy-500), var(--navy-900));
-}
-
-.illustration--mist {
-  background: linear-gradient(135deg, var(--navy-50), var(--mist));
-  border: 1px solid var(--line);
-}
-
-.illustration__icon {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(2px);
-}
-
-.illustration--mist .illustration__icon {
-  background: rgba(16, 67, 119, 0.08);
-}
-
-.illustration__icon svg {
-  width: 3.25rem;
-  height: 3.25rem;
-  color: var(--white);
-}
-
-.illustration--mist .illustration__icon svg {
-  color: var(--navy-500);
-}
-
-/* Decorative blobs behind hero-type sections */
-.blob-field {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.35;
-}
-
-.blob--1 {
-  width: 26rem;
-  height: 26rem;
-  top: -8rem;
-  left: -8rem;
-  background: var(--orange-300);
-}
-
-.blob--2 {
-  width: 22rem;
-  height: 22rem;
-  bottom: -10rem;
-  right: -6rem;
-  background: var(--navy-300);
-}
-
-.relative { position: relative; }
-.z-1 { position: relative; z-index: 1; }
-
-/* ===== Showcase sections (illustration + text) ===== */
-.showcase-grid {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
-  margin-bottom: 5rem;
-}
-
-.showcase-grid .illustration {
-  min-height: 18rem;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--orange-500);
-  background: var(--orange-50);
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
-}
-
-@media (min-width: 900px) {
-  .showcase-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .showcase-grid--reverse .illustration {
-    order: 2;
-  }
-}
-
-.services-hero-strip {
-  margin-top: 3rem;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr;
-}
-
-.services-hero-strip__panel {
-  min-height: 12rem;
-}
-
-@media (min-width: 768px) {
-  .services-hero-strip {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+.illustration--navy { background: linear-gradient(135deg, var(--navy), var(--navy-deep)); }
+.illustration--orange { background: linear-gradient(135deg, var(--orange-light), var(--orange)); }
+.illustration__icon { color: var(--white); }
+.illustration__icon svg { width: 64px; height: 64px; }
