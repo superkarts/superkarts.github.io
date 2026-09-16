@@ -1,23 +1,20 @@
 /* ===== Design tokens ===== */
 :root {
-  --navy-50: #eef3f9;
-  --navy-100: #d6e2f0;
-  --navy-300: #6c93c0;
-  --navy-500: #104377;
-  --navy-600: #0d3865;
-  --navy-700: #0a2c50;
-  --navy-900: #071d35;
+  --dark-500: #30362F;
+  --dark-700: #20241C;
 
-  --orange-50: #fdeee5;
-  --orange-300: #f4934f;
-  --orange-500: #ee601c;
-  --orange-600: #d34f10;
+  --orange-50: #FFF1E7;
+  --orange-100: #FFE1CC;
+  --orange-300: #FF9A57;
+  --orange-500: #FC5500;
+  --orange-600: #E04800;
+  --orange-700: #BD3C00;
 
-  --ink: #16213e;
-  --slate: #5c6b7a;
-  --mist: #f6f8fb;
-  --line: #e4e9f0;
-  --white: #ffffff;
+  --ink: #30362F;
+  --slate: #6E7268;
+  --mist: #FFF7F1;
+  --line: #F0E6DC;
+  --white: #FFFFFF;
 
   --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -26,8 +23,8 @@
   --radius-lg: 1rem;
   --radius-button: 0.5rem;
   --radius-full: 999px;
-  --shadow-md: 0 10px 30px -12px rgba(7, 29, 53, 0.18);
-  --shadow-lg: 0 24px 60px -20px rgba(7, 29, 53, 0.28);
+  --shadow-md: 0 10px 30px -12px rgba(48, 54, 47, 0.16);
+  --shadow-lg: 0 24px 60px -20px rgba(48, 54, 47, 0.26);
 }
 
 /* ===== Reset ===== */
@@ -45,9 +42,19 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--ink);
-  background: var(--white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+
+  /* Single, persistent gradient background for the whole site (not just
+     the hero). Fixed attachment keeps the tint consistent as the page
+     scrolls, rather than stretching/fading out on tall pages. */
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(252, 85, 0, 0.10) 0%, transparent 42%),
+    radial-gradient(circle at 88% 4%, rgba(252, 85, 0, 0.07) 0%, transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(252, 85, 0, 0.06) 0%, transparent 45%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 img {
@@ -112,7 +119,7 @@ button, input, textarea, select {
 }
 
 .bg-mist { background: var(--mist); }
-.bg-navy { background: var(--navy-700); color: var(--white); }
+.bg-dark { background: var(--dark-500); color: var(--white); }
 
 .section-heading {
   max-width: 640px;
@@ -136,7 +143,7 @@ button, input, textarea, select {
 }
 
 .section-heading--light h2 { color: var(--white); }
-.section-heading--light p { color: var(--navy-100); }
+.section-heading--light p { color: rgba(255, 255, 255, 0.75); }
 
 /* ===== Buttons ===== */
 .btn {
@@ -157,24 +164,24 @@ button, input, textarea, select {
 .btn--primary {
   background: var(--orange-500);
   color: var(--white);
-  box-shadow: 0 8px 20px -8px rgba(238, 96, 28, 0.45);
+  box-shadow: 0 8px 20px -8px rgba(252, 85, 0, 0.45);
 }
 .btn--primary:hover { background: var(--orange-600); }
 
 .btn--secondary {
-  background: var(--navy-500);
+  background: var(--dark-500);
   color: var(--white);
 }
-.btn--secondary:hover { background: var(--navy-600); }
+.btn--secondary:hover { background: var(--dark-700); }
 
 .btn--ghost {
   background: transparent;
-  color: var(--navy-500);
-  border-color: rgba(16, 67, 119, 0.2);
+  color: var(--orange-600);
+  border-color: rgba(252, 85, 0, 0.3);
 }
 .btn--ghost:hover {
-  border-color: var(--navy-500);
-  background: var(--navy-50);
+  border-color: var(--orange-500);
+  background: var(--orange-50);
 }
 
 .btn--ghost-light {

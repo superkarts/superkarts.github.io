@@ -1,16 +1,16 @@
-# SuperKart — Business Landing Page (HTML/CSS/JS)
+# SMECart — Business Landing Page (HTML/CSS/JS)
 
-The public marketing site for SuperKart: Home, Services, Pricing, About, and
+The public marketing site for SMECart: Home, Services, Pricing, About, and
 Contact. Plain HTML, CSS, and JavaScript, no framework or build step.
 
-This is project 1 of 4 in the SuperKart platform:
+This is project 1 of 4 in the SMECart platform:
 
 1. **Business landing page** (this repo) — marketing site
 2. **Marketplace** — customer-facing storefront browsing, search, checkout
 3. **Vendor dashboard** — store and product management for vendors
 4. **Superadmin dashboard** — ASBData's internal platform management
 
-It talks to a small backend (`superkart-api`, a separate repo) for the
+It talks to a small backend (`smecart-api`, a separate repo) for the
 contact form. See that repo for the API and its own deployment instructions.
 
 ## Running locally
@@ -50,7 +50,6 @@ partials/
 assets/
   logo.png            Full logo lockup, used in navbar/footer
   favicon.png         Cropped icon-only version of the logo
-  hero-phone-market.png   Hero visual: app on a phone + market scene + card graphic
 ```
 
 ## Connecting to the backend
@@ -58,7 +57,7 @@ assets/
 The contact form (`contact.html` + `js/contact.js`) submits to
 `POST {API_BASE_URL}/api/contact`. `API_BASE_URL` is set in `js/config.js`
 and automatically switches between `localhost:5000` (for local dev, when
-`superkart-api` is running locally) and your production Render URL.
+`smecart-api` is running locally) and your production Render URL.
 
 **Before deploying**, update the production URL in `js/config.js`:
 
@@ -92,20 +91,49 @@ backend's environment variables, or the browser will be blocked by CORS.
 
 Colors and fonts are defined once in `css/base.css`, and icon/illustration
 styles live in `css/icons.css`. Brand colors were sampled directly from the
-logo file:
+SMECart logo file:
 
-- Navy `#104377` — primary brand color
-- Orange `#EE601C` — accent / calls to action
+- Orange `#FC5500` — primary brand color, used for CTAs, links, and accents
+- Charcoal `#30362F` — text color, and used sparingly for dark UI elements
+  (secondary buttons, the footer, the 404 illustration accent) since it's
+  the logo's own secondary color, not an arbitrary dark tone
+
+The whole site runs on a single persistent background gradient (a soft
+orange glow radiating from a few points, set on `<body>` with
+`background-attachment: fixed` so it stays consistent as you scroll,
+rather than being confined to the hero or fading out on long pages). On
+top of that, section backgrounds are kept to just two treatments: white
+(or transparent, showing the gradient through) for most content, and
+orange for CTA blocks. There are no navy/blue sections anywhere in this
+build, by design.
+
+One deliberate judgment call: the footer and two small CTA/illustration
+accents use the charcoal color as a background, not just as text. I read
+"no blue backgrounds, just white-gradient and orange" as ruling out navy
+specifically (which the previous brand used), not the charcoal that's
+actually in the new logo. If you'd rather the footer be light too, drop
+`background: var(--dark-500)` from `.footer` in `css/layout.css` and swap
+the light-on-dark text colors below it back to `var(--ink)` /
+`var(--slate)`.
+
+The **navbar is transparent until the page is scrolled**, then gains a
+white/blurred background, border, and shadow (see `.navbar--scrolled` in
+`css/layout.css` and `wireScrollHeader()` in `js/include.js`). One
+non-obvious fix worth knowing about if you touch this: the navbar is
+injected into `#navbar-placeholder`, and that placeholder needs
+`display: contents` in `css/layout.css` — without it, the wrapping div
+auto-sizes to exactly the header's height and silently breaks
+`position: sticky` (the header just scrolls away instead of sticking).
+This tripped me up during testing, so it's flagged here in case anyone
+restructures the include pattern later.
 
 Fonts use the operating system's native UI font (San Francisco on Apple
 devices, Segoe UI on Windows, Roboto on Android) via a system-font stack
 rather than a webfont. This means zero font-loading network requests, text
 renders instantly, and everything looks native to whatever device it's
-viewed on. I couldn't extract kasuwa.com's exact CSS through my tools to
-match their specific typeface, so this was the more reliable choice over
-guessing at a webfont. If you want a specific custom typeface instead,
-update the `--font-display` / `--font-body` variables in `css/base.css`
-and add the relevant `<link>` tag(s) to each page's `<head>`.
+viewed on. If you want a specific custom typeface instead, update the
+`--font-display` / `--font-body` variables in `css/base.css` and add the
+relevant `<link>` tag(s) to each page's `<head>`.
 
 ## Icons and imagery
 
@@ -122,12 +150,10 @@ photographer in the code as good practice). These are concept placeholders
 you asked for, meant to be swapped for your own photography once you have
 it, not final production assets.
 
-The main hero image (`assets/hero-phone-market.png`) is a composite visual
-showing the app on a phone against a market scene, with a card graphic.
-It's also a placeholder concept, not a final production asset — the card
-shown uses obviously fake placeholder details (no real bank name, a
-generic sequential number) and isn't meant to represent any real
-institution.
+The hero visual on the homepage is a live-coded collage of sample
+storefront cards (not a photo), built from plain HTML/CSS so it's fully
+editable and has no baked-in text or colors to worry about when rebranding
+again in the future.
 
 **Current photo credits:**
 - Omotayo Tajudeen — fruit stand vendor (Home, "Run your store from anywhere")

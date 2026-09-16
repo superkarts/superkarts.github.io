@@ -30,6 +30,7 @@ function wireMobileNav() {
   const mobile = document.getElementById("navMobile");
   const iconOpen = document.getElementById("navIconOpen");
   const iconClose = document.getElementById("navIconClose");
+  const header = document.querySelector(".navbar");
   if (!toggle || !mobile) return;
 
   toggle.addEventListener("click", () => {
@@ -38,6 +39,14 @@ function wireMobileNav() {
     toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     iconOpen.style.display = isOpen ? "none" : "block";
     iconClose.style.display = isOpen ? "block" : "none";
+    // Keep the header's background visible while the mobile menu is open,
+    // even if the page hasn't been scrolled, so the dropdown doesn't float
+    // beneath a transparent bar.
+    if (isOpen) {
+      header.classList.add("navbar--scrolled");
+    } else if (window.scrollY <= 12) {
+      header.classList.remove("navbar--scrolled");
+    }
   });
 
   // Close the mobile menu automatically if the viewport grows past the
@@ -50,6 +59,20 @@ function wireMobileNav() {
       iconClose.style.display = "none";
     }
   });
+}
+
+function wireScrollHeader() {
+  const header = document.querySelector(".navbar");
+  if (!header) return;
+
+  const THRESHOLD = 12; // px scrolled before the header gains a background
+
+  function updateHeaderState() {
+    header.classList.toggle("navbar--scrolled", window.scrollY > THRESHOLD);
+  }
+
+  updateHeaderState(); // set correct state immediately (e.g. on page reload mid-scroll)
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
 }
 
 function fillFooterDetails() {
@@ -67,6 +90,7 @@ async function init() {
   highlightActiveLink();
   wireExternalLinks();
   wireMobileNav();
+  wireScrollHeader();
   fillFooterDetails();
 }
 

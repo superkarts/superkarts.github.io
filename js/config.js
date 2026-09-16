@@ -4,17 +4,17 @@ const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname
 
 export const API_BASE_URL = isLocalhost
   ? "http://localhost:5000"
-  : "https://superkart-api.onrender.com"; // TODO: replace with your real Render URL
+  : "https://smecart-api.onrender.com"; // TODO: replace with your real Render URL
 
 export const EXTERNAL_LINKS = {
-  marketplace: "https://marketplace.superkart.ng",
-  vendorSignup: "https://vendor.superkart.ng/signup",
-  vendorLogin: "https://vendor.superkart.ng/login",
+  marketplace: "https://marketplace.smecart.ng",
+  vendorSignup: "https://vendor.smecart.ng/signup",
+  vendorLogin: "https://vendor.smecart.ng/login",
 };
 
 export const CONTACT = {
-  email: "hello@superkart.ng",
-  supportEmail: "support@superkart.ng",
+  email: "hello@smecart.ng",
+  supportEmail: "support@smecart.ng",
   phone: "+234 800 000 0000",
   address: "Abuja, Nigeria",
 };
