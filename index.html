@@ -1,526 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ASBData Ghana | Instant MTN, AT & Telecel Data Bundles</title>
-<meta name="description" content="Buy MTN, AirtelTigo and Telecel data bundles instantly with Mobile Money. Apply to become an ASBData Ghana agent and earn commission on every sale." />
-<link rel="icon" href="assets/logo.png" />
-<link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMECart | Every Business Deserves a Cart</title>
+  <meta name="description" content="SMECart is a marketplace platform for Nigerian retailers, wholesalers, and merchants to sell, source, and grow, backed by ASBData's payments infrastructure." />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
 </head>
-<body>
+<body data-page="index">
+  <div id="navbar-placeholder"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="ASBData Ghana" />
-    </a>
-    <nav class="nav-links">
-      <a href="#bundles">Data Bundles</a>
-      <a href="#how-it-works">How it Works</a>
-      <a href="#agents">Become an Agent</a>
-      <a href="#" id="nav-signin-link">Sign In</a>
-    </nav>
-    <div class="nav-actions">
-      <a href="agent-login.html" class="btn btn-ghost btn-sm">Agent Login</a>
-      <a href="#bundles" class="btn btn-primary btn-sm">Buy Data Now</a>
-    </div>
-    <button class="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero-copy">
-    <h1>Buy data in <span class="grad-text">seconds</span>. Earn as an agent for life.</h1>
-    <p>ASBData Ghana delivers MTN, AirtelTigo and Telecel bundles instantly, and pays real commission to anyone who becomes an agent.</p>
-    <div class="hero-actions">
-      <a href="#bundles" class="btn btn-primary">Buy Data Now</a>
-      <a href="agent-register.html" class="btn btn-ghost">Become an Agent</a>
-    </div>
-    <div class="hero-trust">
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>24/7</strong>&nbsp;instant delivery</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>3</strong>&nbsp;networks supported</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>MoMo</strong>&nbsp;payments accepted</span>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="bundles">
-  <div class="container">
-    <div class="section-head center">
-      <h2>Grab a data bundle</h2>
-      <p>Choose a network below, then buy straight from the card.</p>
-    </div>
-    <div class="shop-tabs" id="shop-tabs">
-      <button class="shop-tab active" data-network="mtn">MTN</button>
-      <button class="shop-tab" data-network="telecel">Telecel</button>
-      <button class="shop-tab" data-network="airteltigo">AirtelTigo</button>
-    </div>
-    <div class="bundle-shop-grid" id="bundle-grid"></div>
-  </div>
-</section>
-
-<!-- Buy modal -->
-<div class="modal-overlay" id="buy-modal">
-  <div class="modal-card">
-    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-
-    <!-- Step 1: bundle + recipient -->
-    <div class="modal-step" id="step-select">
-      <div class="modal-head">
-        <div class="modal-head-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M6 6l1.5 12a2 2 0 0 0 2 1.8h5a2 2 0 0 0 2-1.8L18 6M10 10v6M14 10v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
+  <main>
+    <section class="hero relative">
+      <div class="blob-field"><span class="blob blob--1"></span><span class="blob blob--2"></span></div>
+      <div class="container hero__grid z-1">
         <div>
-          <h3>Buy Data Bundle</h3>
-          <p class="modal-sub">Review your bundle, then continue to checkout</p>
+          <h1>Every business deserves a cart.</h1>
+          <p>SMECart brings retailers, wholesalers, and merchants onto one marketplace, with verified storefronts, bulk trade tools, and payments built on ASBData's infrastructure.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" data-external="vendorSignup">Start selling</a>
+            <a class="btn btn--ghost" data-external="marketplace">Browse the marketplace</a>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="shield"></span>
+              <span>Verified vendors</span>
+            </div>
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="wallet"></span>
+              <span>Escrow-protected payments</span>
+            </div>
+            <div class="trust-strip__item">
+              <span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="globe"></span>
+              <span>Nationwide reach</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="collage" aria-hidden="true">
+          <div class="store-card store-card--1">
+            <div class="store-card__top">
+              <span class="store-card__category">Retailer</span>
+              <span class="store-card__tag">Free plan</span>
+            </div>
+            <p class="store-card__name">Amaka's Fashion House</p>
+            <div class="store-card__swatches">
+              <span style="background:#FC5500"></span>
+              <span style="background:#30362F"></span>
+              <span style="background:#FF9A57"></span>
+            </div>
+            <div class="store-card__footer">
+              <span>Verified vendor</span>
+              <strong>View store</strong>
+            </div>
+          </div>
+
+          <div class="store-card store-card--2">
+            <div class="store-card__top">
+              <span class="store-card__category">Wholesaler</span>
+              <span class="store-card__tag">Growth plan</span>
+            </div>
+            <p class="store-card__name">Bello Wholesale Foods</p>
+            <div class="store-card__swatches">
+              <span style="background:#30362F"></span>
+              <span style="background:#FFC49B"></span>
+              <span style="background:#FC5500"></span>
+            </div>
+            <div class="store-card__footer">
+              <span>Verified vendor</span>
+              <strong>View store</strong>
+            </div>
+          </div>
+
+          <div class="store-card store-card--3">
+            <div class="store-card__top">
+              <span class="store-card__category">Merchant</span>
+              <span class="store-card__tag">Enterprise</span>
+            </div>
+            <p class="store-card__name">TechHub Electronics</p>
+            <div class="store-card__swatches">
+              <span style="background:#BD3C00"></span>
+              <span style="background:#FF9A57"></span>
+              <span style="background:#30362F"></span>
+            </div>
+            <div class="store-card__footer">
+              <span>Verified vendor</span>
+              <strong>View store</strong>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="select-summary">
-        <div class="ss-top">
-          <span class="ss-tag" id="ss-network-tag">MTN</span>
-          <span class="ss-label">Selected</span>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>From sign-up to sale, in three steps</h2>
+          <p>Whether you're setting up your first storefront or sourcing your next shipment, the path is the same.</p>
         </div>
-        <div class="ss-row">
-          <select id="ss-bundle-select"></select>
-          <span class="ss-price" id="ss-price">GH₵0.00</span>
-        </div>
-      </div>
 
-      <div class="field">
-        <label for="buy-number">Recipient phone number</label>
-        <div class="input-check" id="number-check">
-          <input id="buy-number" type="tel" placeholder="024 000 0000" inputmode="numeric" />
-          <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <div>
-          <strong>Account required</strong>
-          <p>Log in or create a free account so we can confirm your order and deliver it instantly.</p>
-        </div>
-      </div>
-
-      <button type="button" class="btn btn-primary btn-block" id="to-confirm-btn">Continue</button>
-    </div>
-
-    <!-- Step 2: confirm order -->
-    <div class="modal-step" id="step-confirm" hidden>
-      <h3>Confirm your order</h3>
-      <p class="modal-sub">Make sure everything looks right before you continue.</p>
-
-      <div class="confirm-pill">
-        <span id="cf-tag">MTN</span>
-        <span id="cf-size">2GB</span>
-      </div>
-
-      <div class="confirm-rows">
-        <div class="cf-row"><span>Recipient</span><strong id="cf-number">-</strong></div>
-        <div class="cf-row"><span>Network</span><strong id="cf-network">-</strong></div>
-        <div class="cf-row"><span>Bundle</span><strong id="cf-bundle">-</strong></div>
-      </div>
-      <div class="cf-total"><span>Total</span><strong id="cf-total">GH₵0.00</strong></div>
-
-      <p class="confirm-warning">Check the recipient number carefully. Data sent to the wrong number <strong>cannot be reversed or refunded</strong>.</p>
-
-      <div class="modal-actions">
-        <button type="button" class="btn btn-ghost" id="back-to-select">Back</button>
-        <button type="button" class="btn btn-primary" id="confirm-continue-btn">Confirm &amp; Continue</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Sign in modal (customers) -->
-<div class="modal-overlay" id="signin-modal">
-  <div class="modal-card">
-    <button class="modal-close" id="signin-close" aria-label="Close">&times;</button>
-    <div class="modal-head">
-      <div class="modal-head-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </div>
-      <div>
-        <h3>Log in</h3>
-        <p class="modal-sub" id="signin-sub">Welcome back to ASBData Ghana.</p>
-      </div>
-    </div>
-    <div id="signin-message" class="form-message"></div>
-    <form id="signin-form">
-      <div class="field">
-        <label for="signin-id">Phone number or email</label>
-        <input id="signin-id" type="text" placeholder="024 000 0000 or you@example.com" required />
-      </div>
-      <div class="field">
-        <label for="signin-password">Password</label>
-        <input id="signin-password" type="password" placeholder="••••••••" required />
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Log In</button>
-    </form>
-    <p class="form-foot">New here? <a href="customer-register.html">Create an account</a></p>
-  </div>
-</div>
-
-<section class="section section-soft" id="how-it-works">
-  <div class="container">
-    <div class="section-head">
-      <h2>How it works</h2>
-      <p>Three steps between you and a full data bundle.</p>
-    </div>
-    <div class="steps">
-      <div class="step-card">
-        <span class="step-num">1</span>
-        <h3>Choose your bundle</h3>
-        <p>Select a network and a bundle size that fits what you need.</p>
-      </div>
-      <div class="step-card">
-        <span class="step-num">2</span>
-        <h3>Enter the number & pay</h3>
-        <p>Type in the phone number to top up and pay securely with Mobile Money.</p>
-      </div>
-      <div class="step-card">
-        <span class="step-num">3</span>
-        <h3>Get connected</h3>
-        <p>Your data lands on the number within moments, day or night.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="agents">
-  <div class="container">
-    <div class="agent-section">
-      <div>
-        <h2>Turn data into your own small business</h2>
-        <p>Apply once, get approved, and start reselling MTN, AT and Telecel bundles from your own agent wallet. No shop or stock required.</p>
-        <ul class="agent-benefits">
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Commission on every bundle you sell
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Your own wallet, top up anytime with MoMo
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            A dashboard to track sales, commission and payouts
-          </li>
-        </ul>
-        <div class="agent-actions">
-          <a href="agent-register.html" class="btn btn-primary">Apply to Become an Agent</a>
-          <a href="agent-login.html" class="btn btn-ghost">I'm already an agent</a>
+        <div class="grid grid--3" style="margin-top:3rem">
+          <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="storefront"></span>
+            <span class="step-card__number">01</span>
+            <h3>List your store</h3>
+            <p>Register as a retailer, wholesaler, or merchant, verify your details, and set up your storefront in minutes.</p>
+          </div>
+          <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="handshake"></span>
+            <span class="step-card__number">02</span>
+            <h3>Reach the right buyers</h3>
+            <p>Consumers find you on the marketplace. Businesses find you through Connect &amp; Quote for bulk orders.</p>
+          </div>
+          <div class="step-card">
+            <span class="icon-badge icon-badge--orange" data-icon="wallet"></span>
+            <span class="step-card__number">03</span>
+            <h3>Get paid safely</h3>
+            <p>Every order is paid through SMECart Pay and held until the order is confirmed, so both sides are protected.</p>
+          </div>
         </div>
       </div>
-      <div class="agent-panel">
-        <svg class="agent-illustration" viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="shirtGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#8FE0FA"/>
-              <stop offset="1" stop-color="#2A2FA0"/>
-            </linearGradient>
-          </defs>
-          <circle cx="160" cy="180" r="150" fill="rgba(255,255,255,0.10)"/>
-          <circle cx="160" cy="180" r="112" fill="rgba(255,255,255,0.08)"/>
+    </section>
 
-          <g fill="#EAFBFF">
-            <path d="M250 76 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 Z"/>
-            <path d="M66 128 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z"/>
-            <path d="M92 86 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 Z"/>
-          </g>
-
-          <path d="M118 208 C95 200 78 165 88 128 C92 113 108 108 116 118 C124 128 118 150 122 168 C126 186 132 200 118 208 Z" fill="#C98457"/>
-          <circle cx="92" cy="120" r="16" fill="#C98457"/>
-
-          <path d="M204 210 C222 196 232 160 226 128 C223 112 206 108 199 120 C192 132 200 152 196 170 C192 188 188 202 204 210 Z" fill="#C98457"/>
-          <circle cx="222" cy="118" r="14" fill="#C98457"/>
-
-          <g transform="rotate(-14 222 96)">
-            <rect x="203" y="66" width="38" height="64" rx="8" fill="#0C1B2E"/>
-            <rect x="207" y="72" width="30" height="46" rx="3" fill="#5FCFF5"/>
-            <rect x="212" y="80" width="20" height="3" rx="1.5" fill="#ffffff"/>
-            <rect x="212" y="88" width="14" height="3" rx="1.5" fill="#ffffff"/>
-          </g>
-
-          <rect x="98" y="196" width="124" height="130" rx="42" fill="url(#shirtGrad)"/>
-          <rect x="145" y="168" width="30" height="26" fill="#C98457"/>
-          <circle cx="160" cy="140" r="44" fill="#C98457"/>
-          <path d="M116 132 C112 96 130 74 160 74 C190 74 208 96 204 132 C198 118 186 108 160 108 C134 108 122 118 116 132 Z" fill="#20130C"/>
-          <circle cx="145" cy="140" r="4.5" fill="#0C1B2E"/>
-          <circle cx="176" cy="140" r="4.5" fill="#0C1B2E"/>
-          <path d="M142 156 Q160 172 178 156" stroke="#0C1B2E" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-          <g transform="translate(70,192)">
-            <circle cx="0" cy="0" r="17" fill="#FFDE59" stroke="#F2B705" stroke-width="2"/>
-            <text x="0" y="6" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#5A4300">₵</text>
-          </g>
-        </svg>
-        <p class="agent-caption">
-          "I made my first sale in minutes!"
-          <span>Agents start earning commission from day one.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand" style="margin-bottom:14px;">
-          <img src="assets/logo.png" alt="ASBData Ghana" style="height:52px;" />
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Built for every kind of seller</h2>
+          <p>One platform, three vendor types, each with tools sized to how they trade.</p>
         </div>
-        <p>Instant data bundles for MTN, AirtelTigo and Telecel, plus an agent program for anyone who wants to resell data in Ghana.</p>
-        <div class="network-tags">
-          <span>MTN</span><span>AT</span><span>Telecel</span>
+
+        <div class="grid grid--3" style="margin-top:3rem">
+          <div class="segment-card">
+            <span class="icon-badge icon-badge--orange" data-icon="storefront"></span>
+            <h3>Retailer</h3>
+            <p>Sell directly to everyday customers, from a phone or a shop counter.</p>
+            <ul>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Free storefront to start</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Simple checkout and receipts</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Grows with your catalog</li>
+            </ul>
+          </div>
+          <div class="segment-card">
+            <span class="icon-badge icon-badge--orange" data-icon="bulk"></span>
+            <h3>Wholesaler</h3>
+            <p>Supply retailers and businesses in bulk, with minimum order tools built in.</p>
+            <ul>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Bulk pricing and quotes</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Verified buyer requests</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Buyer analytics</li>
+            </ul>
+          </div>
+          <div class="segment-card">
+            <span class="icon-badge icon-badge--orange" data-icon="layers"></span>
+            <h3>Merchant</h3>
+            <p>Distribute at scale with a branded storefront and direct system integration.</p>
+            <ul>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>API inventory sync</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Nationwide visibility</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Dedicated account manager</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem">
+          <a class="btn btn--primary" href="/pricing.html">Compare plans and pricing</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#bundles">Data Bundles</a></li>
-          <li><a href="#how-it-works">How it Works</a></li>
-          <li><a href="#agents">Become an Agent</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Account</h5>
-        <ul>
-          <li><a href="index.html#signin">Sign In</a></li>
-          <li><a href="customer-register.html">Create Account</a></li>
-          <li><a href="agent-login.html">Agent Login</a></li>
-          <li><a href="agent-register.html">Agent Application</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:+233000000000">+233 00 000 0000</a></li>
-          <li><a href="mailto:hello@asbdataghana.com">hello@asbdataghana.com</a></li>
-          <li>Accra, Ghana</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ASBData Ghana. All rights reserved.</span>
-      <span>Payments secured via Mobile Money</span>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script src="js/main.js"></script>
-<script>
-  const bundleData = {
-    mtn: [
-      { size: '1GB', price: 6 }, { size: '2GB', price: 12 }, { size: '3GB', price: 17 },
-      { size: '4GB', price: 22 }, { size: '5GB', price: 26 }, { size: '6GB', price: 31 },
-      { size: '8GB', price: 40 }, { size: '10GB', price: 48 }, { size: '15GB', price: 70 },
-      { size: '20GB', price: 90 }, { size: '25GB', price: 110 }, { size: '30GB', price: 130 },
-    ],
-    telecel: [
-      { size: '2GB', price: 11 }, { size: '3GB', price: 16 }, { size: '5GB', price: 24 },
-      { size: '7GB', price: 32 }, { size: '10GB', price: 44 }, { size: '12GB', price: 52 },
-      { size: '15GB', price: 58 }, { size: '20GB', price: 74 },
-    ],
-    airteltigo: [
-      { size: '1GB', price: 6 }, { size: '2GB', price: 12 }, { size: '3GB', price: 18 },
-      { size: '4GB', price: 21 }, { size: '5GB', price: 25 }, { size: '6GB', price: 33 },
-      { size: '7GB', price: 38 }, { size: '8GB', price: 38 }, { size: '10GB', price: 47 },
-      { size: '12GB', price: 60 }, { size: '15GB', price: 75 }, { size: '20GB', price: 77.7 },
-    ],
-  };
-
-  const networkMeta = {
-    mtn: { tag: 'MTN', headClass: 'head-mtn', fullName: 'MTN' },
-    telecel: { tag: 'TL', headClass: 'head-telecel', fullName: 'Telecel' },
-    airteltigo: { tag: 'AT', headClass: 'head-airteltigo', fullName: 'AirtelTigo' },
-  };
-
-  const cartIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M6 6l1.5 12a2 2 0 0 0 2 1.8h5a2 2 0 0 0 2-1.8L18 6M10 10v6M14 10v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
-
-  const grid = document.getElementById('bundle-grid');
-  const tabs = document.querySelectorAll('#shop-tabs .shop-tab');
-
-  function renderBundles(network) {
-    const meta = networkMeta[network];
-    grid.innerHTML = bundleData[network].map(b => `
-      <div class="bundle-card">
-        <div class="bundle-card-head ${meta.headClass}">
-          <span class="net-tag">${meta.tag}</span>
-          <span class="size">${b.size}</span>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Everything a growing store needs</h2>
+          <p>SMECart handles the parts of running a store that eat the most time.</p>
         </div>
-        <div class="bundle-card-body">
-          <span class="expiry-pill">Non expiry</span>
-          <div class="bundle-price">GH₵${b.price.toFixed(2)}</div>
-          <button type="button" class="buy-btn" data-network="${network}" data-size="${b.size}" data-price="${b.price}">
-            ${cartIcon} Buy Now
-          </button>
+
+        <div class="grid grid--2" style="margin-top:3rem">
+          <div class="feature-card">
+            <span class="icon-badge icon-badge--dark" data-icon="shield"></span>
+            <h3>Verified storefronts</h3>
+            <p>Every vendor is identity-checked before they can list, so buyers know who they're dealing with.</p>
+          </div>
+          <div class="feature-card">
+            <span class="icon-badge icon-badge--dark" data-icon="handshake"></span>
+            <h3>Connect &amp; Quote</h3>
+            <p>Retailers request bulk quotes directly from wholesalers and merchants, inside the platform.</p>
+          </div>
+          <div class="feature-card">
+            <span class="icon-badge icon-badge--dark" data-icon="wallet"></span>
+            <h3>Secure checkout</h3>
+            <p>Payments are held until an order is confirmed, with wallet, card, transfer, and USSD support.</p>
+          </div>
+          <div class="feature-card">
+            <span class="icon-badge icon-badge--dark" data-icon="devices"></span>
+            <h3>Mobile and desktop apps</h3>
+            <p>Manage orders and inventory from the SMECart app or the desktop dashboard on paid plans.</p>
+          </div>
         </div>
       </div>
-    `).join('');
-  }
+    </section>
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderBundles(tab.dataset.network);
-    });
-  });
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="showcase-grid">
+          <div class="illustration illustration--dark illustration--photo" style="background-image:url('https://images.unsplash.com/photo-1585540083814-ea6ee8af9e4f?fm=jpg&q=70&w=1200&auto=format&fit=crop')">
+            <div class="illustration__icon" data-icon="devices"></div>
+            <span class="illustration__credit">Photo: Omotayo Tajudeen / Unsplash</span>
+          </div>
+          <div>
+            <span class="eyebrow">For vendors</span>
+            <h2 style="margin-top:0.75rem">Run your store from anywhere</h2>
+            <p style="margin-top:1rem;color:var(--slate);line-height:1.7">
+              Track orders, update your catalog, and see your payouts from the SMECart
+              mobile app, or the desktop dashboard if you're managing a bigger operation.
+              Both are included from the Growth plan upward.
+            </p>
+            <ul class="detail-list" style="margin-top:1.5rem">
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Real-time order notifications</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Inventory sync across every channel</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Payout tracking in one place</li>
+            </ul>
+          </div>
+        </div>
 
-  renderBundles('mtn');
+        <div class="showcase-grid showcase-grid--reverse">
+          <div>
+            <span class="eyebrow">For buyers</span>
+            <h2 style="margin-top:0.75rem">Find and order from verified sellers</h2>
+            <p style="margin-top:1rem;color:var(--slate);line-height:1.7">
+              Search by category or location, compare vendors, and check out in a few taps.
+              Every store carries a verification badge, so you always know who you're
+              buying from.
+            </p>
+            <ul class="detail-list" style="margin-top:1.5rem">
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Search and location filters</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Ratings from real buyers</li>
+              <li><span class="icon-check" data-icon="badgeCheck"></span>Secure, escrow-backed checkout</li>
+            </ul>
+          </div>
+          <div class="illustration illustration--orange illustration--photo" style="background-image:url('https://images.unsplash.com/photo-1734255026082-82fdc81991f0?fm=jpg&q=70&w=1200&auto=format&fit=crop')">
+            <div class="illustration__icon" data-icon="search"></div>
+            <span class="illustration__credit">Photo: Tunde Buremo / Unsplash</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // Buy modal
-  const modal = document.getElementById('buy-modal');
-  const modalClose = document.getElementById('modal-close');
-  const steps = {
-    select: document.getElementById('step-select'),
-    confirm: document.getElementById('step-confirm'),
-  };
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-banner cta-banner--orange cta-banner--photo" style="background-image:url('https://images.unsplash.com/photo-1695654390723-479197a8c4a3?fm=jpg&q=70&w=1400&auto=format&fit=crop')">
+          <h2>Ready to open your store on SMECart?</h2>
+          <p>It takes a few minutes to register. Your first plan is free, whatever kind of seller you are.</p>
+          <a class="btn btn--secondary" data-external="vendorSignup">Create your storefront</a>
+          <span class="illustration__credit" style="position:static;display:block;margin-top:0.5rem;color:rgba(255,255,255,0.7)">Photo: Grab / Unsplash</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  const ssTag = document.getElementById('ss-network-tag');
-  const ssSelect = document.getElementById('ss-bundle-select');
-  const ssPrice = document.getElementById('ss-price');
-  const numberInput = document.getElementById('buy-number');
-  const numberCheck = document.getElementById('number-check');
-  const toConfirmBtn = document.getElementById('to-confirm-btn');
+  <div id="footer-placeholder"></div>
 
-  let activeNetwork = 'mtn';
-
-  function showStep(name) {
-    Object.entries(steps).forEach(([key, el]) => { el.hidden = key !== name; });
-  }
-
-  function fillBundleSelect(network) {
-    ssSelect.innerHTML = bundleData[network].map((b, i) =>
-      `<option value="${b.price}" data-size="${b.size}" ${i === 1 ? 'selected' : ''}>${b.size}</option>`
-    ).join('');
-    updatePrice();
-  }
-
-  function updatePrice() {
-    const opt = ssSelect.options[ssSelect.selectedIndex];
-    ssPrice.textContent = `GH₵${parseFloat(opt.value).toFixed(2)}`;
-  }
-
-  ssSelect.addEventListener('change', updatePrice);
-
-  numberInput.addEventListener('input', () => {
-    const digits = numberInput.value.replace(/\D/g, '');
-    numberCheck.classList.toggle('valid', digits.length >= 9);
-  });
-
-  grid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.buy-btn');
-    if (!btn) return;
-    activeNetwork = btn.dataset.network;
-    ssTag.textContent = networkMeta[activeNetwork].tag;
-    fillBundleSelect(activeNetwork);
-    numberInput.value = '';
-    numberCheck.classList.remove('valid');
-    showStep('select');
-    modal.classList.add('open');
-  });
-
-  function closeModal() { modal.classList.remove('open'); }
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-  function populateConfirm(order) {
-    document.getElementById('cf-tag').textContent = order.networkTag;
-    document.getElementById('cf-size').textContent = order.size;
-    document.getElementById('cf-number').textContent = order.number;
-    document.getElementById('cf-network').textContent = order.networkName;
-    document.getElementById('cf-bundle').textContent = `${order.size} · Non expiry`;
-    document.getElementById('cf-total').textContent = `GH₵${order.price.toFixed(2)}`;
-  }
-
-  // Step 1: pick a network/bundle/number, then continue
-  toConfirmBtn.addEventListener('click', () => {
-    if (numberInput.value.replace(/\D/g, '').length < 9) {
-      numberInput.focus();
-      return;
-    }
-    const opt = ssSelect.options[ssSelect.selectedIndex];
-    const meta = networkMeta[activeNetwork];
-    const order = {
-      networkTag: meta.tag,
-      networkName: meta.fullName,
-      size: opt.dataset.size,
-      price: parseFloat(opt.value),
-      number: numberInput.value,
-    };
-    sessionStorage.setItem('asb_order', JSON.stringify(order));
-
-    if (localStorage.getItem('asb_user')) {
-      populateConfirm(order);
-      showStep('confirm');
-    } else {
-      closeModal();
-      openSignin({ returnToConfirm: true });
-    }
-  });
-
-  document.getElementById('back-to-select').addEventListener('click', () => showStep('select'));
-
-  // Step 2: confirm order, already logged in by this point -> straight to checkout
-  document.getElementById('confirm-continue-btn').addEventListener('click', () => {
-    window.location.href = 'checkout.html';
-  });
-
-  // ===== Sign in modal (nav link + buy-flow login gate) =====
-  const signinModal = document.getElementById('signin-modal');
-  const signinClose = document.getElementById('signin-close');
-  const signinSub = document.getElementById('signin-sub');
-  const signinForm = document.getElementById('signin-form');
-  const signinMessage = document.getElementById('signin-message');
-  let signinContext = null;
-
-  function openSignin(context) {
-    signinContext = context || null;
-    signinSub.textContent = signinContext && signinContext.returnToConfirm
-      ? 'Your order is saved. Log in to continue.'
-      : 'Welcome back to ASBData Ghana.';
-    signinMessage.classList.remove('show');
-    signinForm.reset();
-    signinModal.classList.add('open');
-  }
-  function closeSignin() { signinModal.classList.remove('open'); }
-
-  document.getElementById('nav-signin-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    openSignin(null);
-  });
-  signinClose.addEventListener('click', closeSignin);
-  signinModal.addEventListener('click', (e) => { if (e.target === signinModal) closeSignin(); });
-
-  signinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    localStorage.setItem('asb_user', JSON.stringify({ id: document.getElementById('signin-id').value }));
-    signinMessage.textContent = 'Logged in. Continuing…';
-    signinMessage.classList.add('show', 'success');
-    setTimeout(() => {
-      closeSignin();
-      if (signinContext && signinContext.returnToConfirm) {
-        const order = JSON.parse(sessionStorage.getItem('asb_order') || 'null');
-        if (order) {
-          populateConfirm(order);
-          modal.classList.add('open');
-          showStep('confirm');
-        }
-      }
-    }, 800);
-  });
-
-  if (window.location.hash === '#signin') {
-    openSignin(null);
-    history.replaceState(null, '', window.location.pathname);
-  }
-</script>
+  <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/icons.js"></script>
 </body>
 </html>
