@@ -1,29 +1,24 @@
-# SMECart — Business Landing Page
+# SuperKart — Business Landing Page (HTML/CSS/JS)
 
-The public marketing site for SMECart: Home, About, Services, Pricing, and
-Contact, plus a 404 page. Plain HTML, CSS, and JavaScript — no framework,
-no build step — following the same structure and design system as the
-SuperKart reference build (superkarts/superkarts.github.io).
+The public marketing site for SuperKart: Home, Services, Pricing, About, and
+Contact. Plain HTML, CSS, and JavaScript, no framework or build step.
 
-## What was fixed: the missing header
+This is project 1 of 4 in the SuperKart platform:
 
-The header wasn't showing up because the navbar is loaded at runtime with
-`fetch()` (see `js/include.js`) — and `fetch()` is blocked by the browser
-when a page is opened directly from disk (`file:///...`). If you were
-double-clicking `index.html` to preview it, that's almost certainly why the
-header looked empty.
+1. **Business landing page** (this repo) — marketing site
+2. **Marketplace** — customer-facing storefront browsing, search, checkout
+3. **Vendor dashboard** — store and product management for vendors
+4. **Superadmin dashboard** — ASBData's internal platform management
 
-Two things changed to make this less confusing going forward:
-1. **This is now a hard requirement, called out clearly below** — serve the
-   site over `http://`, even locally.
-2. **`include.js` now fails loudly instead of silently.** If the fetch ever
-   fails again for any reason, you'll see an orange notice in place of the
-   header telling you exactly what went wrong, instead of a blank gap.
+It talks to a small backend (`superkart-api`, a separate repo) for the
+contact form. See that repo for the API and its own deployment instructions.
 
 ## Running locally
 
-Because the navbar and footer are loaded at runtime via `fetch()`, this
-site needs to be served over HTTP, not opened directly as a `file://` path:
+Because the navbar and footer are loaded at runtime via `fetch()` (see
+`js/include.js`), this site needs to be served over HTTP, not opened
+directly as a `file://` path, or the browser will block those requests.
+Any static file server works:
 
 ```bash
 # Option 1: Python (built into most systems)
@@ -33,106 +28,128 @@ python3 -m http.server 8080
 npx serve .
 ```
 
-Then open `http://localhost:8080/index.html`. This isn't a concern once
-it's on GitHub Pages, since that serves everything over regular HTTP.
-
-## Header behavior
-
-The header is transparent and floats over the page until you scroll — most
-visible on the homepage hero. `js/include.js` adds a `.scrolled` class once
-`window.scrollY` passes 40px, which is what gives it a solid background.
+Then open `http://localhost:8080/index.html`.
 
 ## Project structure
 
 ```
-smecart-landing/
-├── index.html, about.html, services.html, pricing.html, contact.html, 404.html
-├── partials/
-│   ├── navbar.html     shared nav markup, injected via include.js
-│   └── footer.html     shared footer markup, injected via include.js
-├── css/
-│   ├── base.css        design tokens (colors, fonts) and resets
-│   ├── layout.css      header, footer, container/section scaffolding
-│   ├── components.css  hero, cards, pricing, FAQ, forms
-│   └── icons.css       icon badge and illustration panel styling
-├── js/
-│   ├── include.js      loads navbar/footer, active nav link, header scroll state
-│   ├── icons.js         shared inline SVG icon library, injected via data-icon
-│   └── main.js          FAQ accordion, pricing toggle, contact form stub
-└── assets/
-    └── hero.png
+index.html, about.html, services.html, pricing.html, contact.html, 404.html
+css/
+  base.css        Design tokens (colors, fonts) and resets
+  layout.css      Navbar and footer
+  components.css  Hero, cards, pricing, FAQ, forms
+  icons.css       Icon badges and illustration panel styles
+js/
+  config.js       API_BASE_URL and other cross-app links, per environment
+  include.js      Loads the shared navbar/footer partials into every page
+  contact.js      Contact form submission logic (calls the backend API)
+  icons.js        Shared SVG icon library, injected via data-icon attributes
+partials/
+  navbar.html     Shared navbar markup, injected via include.js
+  footer.html     Shared footer markup, injected via include.js
+assets/
+  logo.png            Full logo lockup, used in navbar/footer
+  favicon.png         Cropped icon-only version of the logo
+  hero-phone-market.png   Hero visual: app on a phone + market scene + card graphic
 ```
 
-## A note on hosting paths
+## Connecting to the backend
 
-The SuperKart reference uses absolute paths (`/css/base.css`, `/js/include.js`)
-because it's deployed as `superkarts.github.io` — a repo named exactly
-`<username>.github.io`, which GitHub serves at the domain root. This
-project uses **relative** paths (`css/base.css`, `js/include.js`) instead,
-so it works correctly whether you deploy it at the root of your own
-`<username>.github.io`, or as a project site under a path like
-`<username>.github.io/smecart-landing/`. If you do end up naming this repo
-exactly `<username>.github.io`, relative paths still work fine — you don't
-need to change anything.
+The contact form (`contact.html` + `js/contact.js`) submits to
+`POST {API_BASE_URL}/api/contact`. `API_BASE_URL` is set in `js/config.js`
+and automatically switches between `localhost:5000` (for local dev, when
+`superkart-api` is running locally) and your production Render URL.
+
+**Before deploying**, update the production URL in `js/config.js`:
+
+```js
+export const API_BASE_URL = isLocalhost
+  ? "http://localhost:5000"
+  : "https://your-real-render-url.onrender.com"; // update this
+```
+
+And make sure that same frontend domain is added to `ALLOWED_ORIGINS` in the
+backend's environment variables, or the browser will be blocked by CORS.
+
+## Security notes for this frontend
+
+- The contact form includes a hidden honeypot field and a render-timestamp,
+  both used by the backend to quietly discard likely bot submissions.
+- All real validation happens server-side; anything checked here (e.g.
+  `required`, `minlength` on inputs) is a UX nicety, not a security boundary.
+- No API keys or secrets belong in this codebase; it's a public, static site
+  and everything here is visible to anyone who views source.
+
+## Before going live
+
+- Update `js/config.js` with real API, marketplace, and vendor-portal URLs.
+- Update the placeholder social links in `partials/footer.html`.
+- Update contact details in `partials/footer.html` and `contact.html`.
+- Replace the illustration panels with real photography (see "Icons and
+  imagery" below).
 
 ## Design tokens
 
-Colors and fonts are defined once in `css/base.css`, matching the SuperKart
-reference:
+Colors and fonts are defined once in `css/base.css`, and icon/illustration
+styles live in `css/icons.css`. Brand colors were sampled directly from the
+logo file:
 
-- Navy `#104377` — primary brand color, used for headings and dark sections
-- Orange `#EE601C` — accent color, used for CTAs and highlights
-- **General Sans** (headings, via Fontshare) and **Inter** (body, via Google
-  Fonts)
+- Navy `#104377` — primary brand color
+- Orange `#EE601C` — accent / calls to action
 
-## Icons
+Fonts use the operating system's native UI font (San Francisco on Apple
+devices, Segoe UI on Windows, Roboto on Android) via a system-font stack
+rather than a webfont. This means zero font-loading network requests, text
+renders instantly, and everything looks native to whatever device it's
+viewed on. I couldn't extract kasuwa.com's exact CSS through my tools to
+match their specific typeface, so this was the more reliable choice over
+guessing at a webfont. If you want a specific custom typeface instead,
+update the `--font-display` / `--font-body` variables in `css/base.css`
+and add the relevant `<link>` tag(s) to each page's `<head>`.
 
-Every icon is a hand-written inline SVG, defined once in `js/icons.js` and
-injected wherever a `data-icon="name"` attribute appears (e.g.
-`<span class="icon-badge icon-badge--orange" data-icon="wallet"></span>`).
+## Icons and imagery
+
+Every icon on the site is a hand-written inline SVG, defined once in
+`js/icons.js` and injected wherever a `data-icon="name"` attribute appears.
 To add a new icon, add it to the `ICONS` object in that file.
 
-## Before you publish — placeholder content to replace
+The illustration panels (Home's two showcase sections and CTA banner, the
+About hero, and two of the three Services hero panels) use real photos of
+Nigerian markets and vendors, sourced from Unsplash and confirmed free to
+use under the [Unsplash License](https://unsplash.com/license) (free for
+commercial use, no attribution legally required, though I've credited each
+photographer in the code as good practice). These are concept placeholders
+you asked for, meant to be swapped for your own photography once you have
+it, not final production assets.
 
-- **Logo** — the header currently renders a coded wordmark (dark "SME" +
-  orange "Cart" + a small cart icon) because the logo image didn't come
-  through in the upload. Drop your real logo file into `assets/`, then
-  swap the `.brand` markup in `partials/navbar.html` and
-  `partials/footer.html` for an `<img>` tag — since both are shared now,
-  you only need to change it there, not on every page.
-- **Pricing** (`pricing.html`) — the three plans and amounts (₦0 / ₦7,500 /
-  ₦18,000) are placeholders. Replace with your real plans.
-- **About page stats and mission copy** — the vendor/order/city numbers are
-  blank placeholders (`—`); the mission text is generic and worth making
-  more specific to your actual story.
-- **Testimonials on the homepage** — clearly marked as placeholders. Replace
-  with real vendor/shopper quotes before launch, or remove the section.
-- **Contact details** (`contact.html`) — email, phone and address are
-  placeholders.
-- **Contact form** — submits nowhere yet; it just shows a message on
-  screen, and includes an inert honeypot field for when it is wired up.
-  Since GitHub Pages can't run a backend, wire it to a form service like
-  Formspree, or point it at an API once your marketplace/vendor backend is
-  live.
-- **Nav and CTA links** — everything with `data-external="vendorSignup"`,
-  `data-external="marketplace"`, or `href="#"` is a placeholder for links
-  into your other three projects (marketplace, vendor portal, superadmin).
-  These aren't wired to anything yet; point them at the real URLs once
-  those projects are deployed.
+The main hero image (`assets/hero-phone-market.png`) is a composite visual
+showing the app on a phone against a market scene, with a card graphic.
+It's also a placeholder concept, not a final production asset — the card
+shown uses obviously fake placeholder details (no real bank name, a
+generic sequential number) and isn't meant to represent any real
+institution.
 
-## Hosting on GitHub Pages
+**Current photo credits:**
+- Omotayo Tajudeen — fruit stand vendor (Home, "Run your store from anywhere")
+- Tunde Buremo — Bodija Market tomato sellers, Ibadan (Home, "Find and order from verified sellers")
+- Grab — motorcycle rider (Home, final CTA banner)
+- Tunde Buremo — wheelbarrow of watermelons (About hero)
+- Ben Iwara — food stall with plantains (Services hero strip)
+- Shedrack Salami — market cart (Services hero strip)
 
-1. Create a GitHub repository for this project.
-2. Push these files:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/smecart-landing.git
-   git push -u origin main
-   ```
-3. On GitHub, go to **Settings → Pages**.
-4. Under **Source**, choose **Deploy from a branch**, pick `main` and
-   `/root`, then save.
-5. GitHub gives you a live URL within a minute or two.
+**To swap in your own photos later:** find the `background-image:url(...)`
+inline style on the relevant `.illustration` or `.cta-banner--photo` div in
+`index.html`, `about.html`, or `services.html`, and replace the URL with a
+path to your own image (e.g. `/assets/photos/your-photo.jpg` after adding
+it to the `assets` folder). The colored overlay and icon badge will apply
+automatically. When you do your own shoot, the concept each spot is going
+for is:
+- Vendor tending their own stall/storefront, phone or product in hand
+- A busy, colorful market or bulk-trade scene (many buyers/sellers)
+- Delivery in motion (a rider, a handoff, a package)
+
+## Deploying
+
+This is a fully static site: any static host works (Netlify, Vercel, GitHub
+Pages, or a static bucket behind Render). There's no build step, just deploy
+the files as they are.

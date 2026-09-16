@@ -1,138 +1,192 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pricing — SMECart</title>
-<meta name="description" content="SMECart pricing plans for vendors — placeholder tiers to edit with your real pricing." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" />
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/layout.css" />
-<link rel="stylesheet" href="css/components.css" />
-<link rel="stylesheet" href="css/icons.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing &amp; Plans | SuperKart</title>
+  <meta name="description" content="SuperKart pricing for retailers, wholesalers, and merchants. Every vendor type starts free." />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
 </head>
 <body data-page="pricing">
-<div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-<main>
-  <div class="page-header">
-    <div class="container">
-      <h1>Simple pricing, room to grow</h1>
-      <p>Start free. Upgrade when your store needs more. <strong>Note:</strong> the amounts below are placeholders — replace them with your real pricing.</p>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container">
-      <div class="pricing-toggle">
-        <div class="switch-group">
-          <button id="pricingMonthly" class="active">Monthly</button>
-          <button id="pricingAnnual">Annual <span class="save-badge">Save ~15%</span></button>
+  <main>
+    <section class="section--tight bg-mist">
+      <div class="container">
+        <div class="section-heading section-heading--center" style="max-width:640px">
+          <h2>Pricing that grows with your business</h2>
+          <p>Every vendor type starts free. Upgrade when you're ready for more visibility, lower fees, and more tools.</p>
         </div>
       </div>
+    </section>
 
-      <div class="pricing-grid">
-        <div class="plan">
-          <h3>Starter</h3>
-          <p class="plan-desc">For a new business testing the waters.</p>
-          <div class="price">
-            <span class="amount" data-price-monthly="₦0" data-price-annual="₦0">₦0</span>
-            <span class="period" data-period-monthly="/month" data-period-annual="/month, billed yearly">/month</span>
+    <section class="section">
+      <div class="container">
+
+        <div class="pricing-group">
+          <div style="display:flex;align-items:center;gap:0.875rem"><span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="storefront"></span><h3 style="margin:0">Retailer plans</h3></div>
+          <div class="grid grid--3" style="margin-top:1.5rem">
+            <div class="plan-card">
+              <h4>Starter</h4>
+              <div class="plan-card__price"><strong>Free</strong></div>
+              <p class="plan-card__commission">5% commission per sale</p>
+              <ul class="plan-card__features">
+                <li>Up to 20 products</li>
+                <li>SuperKart storefront link</li>
+                <li>Secure checkout</li>
+                <li>Basic sales analytics</li>
+                <li>Community support</li>
+              </ul>
+            </div>
+            <div class="plan-card plan-card--highlight">
+              <span class="plan-card__badge">Most popular</span>
+              <h4>Growth</h4>
+              <div class="plan-card__price"><strong>&#8358;5,000</strong><span>/month</span></div>
+              <p class="plan-card__commission">3.5% commission per sale</p>
+              <ul class="plan-card__features">
+                <li>Up to 200 products</li>
+                <li>Custom store link</li>
+                <li>Promoted listing credits</li>
+                <li>Sales dashboard</li>
+                <li>Mobile app access</li>
+                <li>Priority support</li>
+              </ul>
+            </div>
+            <div class="plan-card">
+              <h4>Pro</h4>
+              <div class="plan-card__price"><strong>&#8358;15,000</strong><span>/month</span></div>
+              <p class="plan-card__commission">2% commission per sale</p>
+              <ul class="plan-card__features">
+                <li>Unlimited products</li>
+                <li>Featured homepage placement</li>
+                <li>Bulk upload tools</li>
+                <li>Multi-staff accounts</li>
+                <li>Mobile and desktop app access</li>
+                <li>Dedicated relationship manager</li>
+              </ul>
+            </div>
           </div>
-          <ul>
-            <li>Up to 15 product listings</li>
-            <li>Storefront + marketplace listing</li>
-            <li>Standard payment processing fee</li>
-            <li>Basic order dashboard</li>
-            <li>Email support</li>
-          </ul>
-          <a href="#" class="btn btn--ghost btn--block" data-external="vendorSignup">Start free</a>
         </div>
 
-        <div class="plan featured">
-          <h3>Growth</h3>
-          <p class="plan-desc">For businesses ready to scale up sales.</p>
-          <div class="price">
-            <span class="amount" data-price-monthly="₦7,500" data-price-annual="₦76,500">₦7,500</span>
-            <span class="period" data-period-monthly="/month" data-period-annual="/year">/month</span>
+        <div class="pricing-group">
+          <div style="display:flex;align-items:center;gap:0.875rem"><span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="bulk"></span><h3 style="margin:0">Wholesaler plans</h3></div>
+          <div class="grid grid--3" style="margin-top:1.5rem">
+            <div class="plan-card">
+              <h4>Starter</h4>
+              <div class="plan-card__price"><strong>Free</strong></div>
+              <p class="plan-card__commission">4% commission per order</p>
+              <ul class="plan-card__features">
+                <li>Up to 50 SKUs</li>
+                <li>B2B catalog listing</li>
+                <li>Minimum order quantity tool</li>
+                <li>Verification badge request</li>
+              </ul>
+            </div>
+            <div class="plan-card plan-card--highlight">
+              <span class="plan-card__badge">Most popular</span>
+              <h4>Growth</h4>
+              <div class="plan-card__price"><strong>&#8358;10,000</strong><span>/month</span></div>
+              <p class="plan-card__commission">2.5% commission per order</p>
+              <ul class="plan-card__features">
+                <li>Up to 500 SKUs</li>
+                <li>Bulk order and quote requests</li>
+                <li>Buyer analytics</li>
+                <li>Verified badge</li>
+                <li>Mobile app access</li>
+                <li>Priority in B2B search</li>
+              </ul>
+            </div>
+            <div class="plan-card">
+              <h4>Enterprise</h4>
+              <div class="plan-card__price"><strong>&#8358;30,000</strong><span>/month</span></div>
+              <p class="plan-card__commission">1.5% commission per order</p>
+              <ul class="plan-card__features">
+                <li>Unlimited catalog</li>
+                <li>API inventory sync</li>
+                <li>Dedicated account manager</li>
+                <li>Regional distribution tools</li>
+                <li>Mobile and desktop app access</li>
+                <li>Invoice-financing referral</li>
+              </ul>
+            </div>
           </div>
-          <ul>
-            <li>Unlimited product listings</li>
-            <li>Priority marketplace placement</li>
-            <li>Reduced payment processing fee</li>
-            <li>Sales &amp; inventory analytics</li>
-            <li>Delivery integration</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="#" class="btn btn--primary btn--block" data-external="vendorSignup">Choose Growth</a>
         </div>
 
-        <div class="plan">
-          <h3>Pro</h3>
-          <p class="plan-desc">For established vendors with a team.</p>
-          <div class="price">
-            <span class="amount" data-price-monthly="₦18,000" data-price-annual="₦183,600">₦18,000</span>
-            <span class="period" data-period-monthly="/month" data-period-annual="/year">/month</span>
+        <div class="pricing-group">
+          <div style="display:flex;align-items:center;gap:0.875rem"><span class="icon-badge icon-badge--orange icon-badge--sm" data-icon="layers"></span><h3 style="margin:0">Merchant / distributor plans</h3></div>
+          <div style="margin-top:1.5rem;max-width:22rem">
+            <div class="plan-card">
+              <h4>Enterprise</h4>
+              <div class="plan-card__price"><strong>Custom</strong></div>
+              <p class="plan-card__commission">From &#8358;75,000/month, or a negotiated revenue share</p>
+              <ul class="plan-card__features">
+                <li>Dedicated branded storefront</li>
+                <li>Full API integration for inventory and orders</li>
+                <li>Nationwide distribution visibility</li>
+                <li>Dedicated account manager</li>
+                <li>Co-marketing campaigns</li>
+                <li>Mobile and desktop app access</li>
+                <li>Priority payout settlement</li>
+              </ul>
+            </div>
           </div>
-          <ul>
-            <li>Everything in Growth</li>
-            <li>Multiple staff accounts</li>
-            <li>Lowest payment processing fee</li>
-            <li>Advanced analytics &amp; reporting</li>
-            <li>Dedicated account support</li>
-          </ul>
-          <a href="#" class="btn btn--ghost btn--block" data-external="vendorSignup">Choose Pro</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section bg-mist">
+      <div class="container">
+        <div class="section-heading section-heading--center" style="max-width:640px">
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq" style="margin-top:2.5rem">
+          <details class="faq-item">
+            <summary>Do I need to be registered as a business to sell?
+              <svg class="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </summary>
+            <p>Retailers can start with just a valid means of identification. Wholesalers and merchants need business registration details as part of verification.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How does the free plan make money for SuperKart?
+              <svg class="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </summary>
+            <p>Free plans carry a slightly higher commission on completed sales. As you upgrade, the commission drops and you unlock more tools.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I change plans later?
+              <svg class="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </summary>
+            <p>Yes. You can upgrade or downgrade at any time from your vendor dashboard, and changes apply from your next billing cycle.</p>
+          </details>
+          <details class="faq-item">
+            <summary>When do I get paid?
+              <svg class="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </summary>
+            <p>Funds are held securely until an order is confirmed, then released to your wallet. Paid plans get faster settlement times.</p>
+          </details>
         </div>
       </div>
-      <p class="pricing-note">All plans include secure payments and access to the SMECart marketplace. Prices shown are placeholders in Nigerian naira — update with your actual pricing and currency.</p>
-    </div>
-  </section>
+    </section>
 
-  <section class="section bg-mist">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow">Questions</span>
-        <h2>Pricing FAQ</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item open">
-          <button>Can I switch plans later? <span class="chevron">⌄</span></button>
-          <div class="faq-answer"><p>Yes — you can upgrade or downgrade your plan at any time from your vendor dashboard. Changes take effect on your next billing cycle.</p></div>
-        </div>
-        <div class="faq-item">
-          <button>Is there a contract or lock-in period? <span class="chevron">⌄</span></button>
-          <div class="faq-answer"><p>No. All plans are pay-as-you-go, whether billed monthly or annually. Cancel any time.</p></div>
-        </div>
-        <div class="faq-item">
-          <button>What payment methods can my customers use? <span class="chevron">⌄</span></button>
-          <div class="faq-answer"><p>Card payments, bank transfers, and mobile wallets, depending on what's enabled for your region.</p></div>
-        </div>
-        <div class="faq-item">
-          <button>Do you take a commission on sales? <span class="chevron">⌄</span></button>
-          <div class="faq-answer"><p>Each plan includes a payment processing fee per transaction, which decreases on higher plans. Replace this answer with your actual commission structure.</p></div>
+    <section class="section text-center">
+      <div class="container">
+        <h2 style="font-size:1.5rem;font-weight:700">Still deciding which plan fits?</h2>
+        <div style="margin-top:1.5rem">
+          <a class="btn btn--primary" data-external="vendorSignup">Start free, upgrade anytime</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cta-banner cta-banner--orange">
-        <h2>Not sure which plan fits?</h2>
-        <p>Start on Starter — you can always upgrade once your store is up and running.</p>
-        <a class="btn btn--secondary" data-external="vendorSignup">Start selling free</a>
-      </div>
-    </div>
-  </section>
-</main>
+  <div id="footer-placeholder"></div>
 
-<div id="footer-placeholder"></div>
-
-<script src="js/main.js"></script>
-<script type="module" src="js/include.js"></script>
-<script type="module" src="js/icons.js"></script>
+  <script type="module" src="/js/include.js"></script>
+  <script type="module" src="/js/icons.js"></script>
 </body>
 </html>
