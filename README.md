@@ -102,23 +102,17 @@ The whole site runs on a single persistent background gradient (a soft
 orange glow radiating from a few points, set on `<body>` with
 `background-attachment: fixed` so it stays consistent as you scroll,
 rather than being confined to the hero or fading out on long pages). On
-top of that, section backgrounds are kept to just two treatments: white
-(or transparent, showing the gradient through) for most content, and
-orange for CTA blocks. There are no navy/blue sections anywhere in this
-build, by design.
+top of that, section backgrounds are kept to just a few treatments: white
+(or transparent, showing the gradient through) for most content, solid
+orange for the main CTA blocks, and a translucent "glass" orange (low-opacity
+fill + heavy blur) for the footer and the secondary CTA banners. There are
+no navy/blue sections anywhere in this build, by design.
 
-One deliberate judgment call: the footer and two small CTA/illustration
-accents use the charcoal color as a background, not just as text. I read
-"no blue backgrounds, just white-gradient and orange" as ruling out navy
-specifically (which the previous brand used), not the charcoal that's
-actually in the new logo. If you'd rather the footer be light too, drop
-`background: var(--dark-500)` from `.footer` in `css/layout.css` and swap
-the light-on-dark text colors below it back to `var(--ink)` /
-`var(--slate)`.
-
-The **navbar is transparent until the page is scrolled**, then gains a
-white/blurred background, border, and shadow (see `.navbar--scrolled` in
-`css/layout.css` and `wireScrollHeader()` in `js/include.js`). One
+**Navbar:** the nav links sit inside their own bordered, rounded pill
+(`.navbar__links` in `css/layout.css`), separate from the header bar
+itself. The header bar is transparent until the page is scrolled, then
+gains a white/blurred background, border, and shadow (see
+`.navbar--scrolled` and `wireScrollHeader()` in `js/include.js`). One
 non-obvious fix worth knowing about if you touch this: the navbar is
 injected into `#navbar-placeholder`, and that placeholder needs
 `display: contents` in `css/layout.css` — without it, the wrapping div
@@ -126,6 +120,19 @@ auto-sizes to exactly the header's height and silently breaks
 `position: sticky` (the header just scrolls away instead of sticking).
 This tripped me up during testing, so it's flagged here in case anyone
 restructures the include pattern later.
+
+**Footer and secondary CTAs:** these use a glassmorphic treatment, not a
+solid fill — `background: rgba(252, 85, 0, 0.08)` plus
+`backdrop-filter: blur(28px)`, so the page gradient shows through softly
+underneath. Text on these panels uses the dark palette (`var(--ink)` /
+`var(--slate)`), since the panel itself is light, not dark.
+
+**Photo panels:** the illustration panels (About hero, two of Home's
+showcase sections, two of the three Services hero panels) are portrait-
+oriented (`aspect-ratio: 4/5`) with a light color-tint overlay and no icon
+on top — the photo carries the panel on its own. The one non-photo panel
+(Services' third hero-strip panel, which has no image behind it) keeps its
+icon since there's nothing else to show there.
 
 Fonts use the operating system's native UI font (San Francisco on Apple
 devices, Segoe UI on Windows, Roboto on Android) via a system-font stack

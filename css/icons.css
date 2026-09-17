@@ -49,15 +49,16 @@
 }
 .icon-check svg { width: 0.75rem; height: 0.75rem; }
 
-/* ===== Illustration panels (used in place of photography) ===== */
+/* ===== Illustration panels (photos + solid-color variants) ===== */
 .illustration {
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 20rem;
+  aspect-ratio: 4 / 5;
+  width: 100%;
 }
 
 .illustration::before {
@@ -88,8 +89,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(3px);
@@ -101,8 +102,8 @@
 }
 
 .illustration__icon svg {
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   color: var(--white);
 }
 
@@ -110,8 +111,9 @@
   color: var(--orange-600);
 }
 
-/* Photo variant: a real photo with a brand-colored tint overlay, so
-   photography still reads as part of the same visual system. */
+/* Photo variant: a real photo, cropped to a portrait frame, with a light
+   brand-colored tint so photography still reads as part of the same
+   visual system. No icon overlay — the photo carries the panel on its own. */
 .illustration--photo {
   background-size: cover;
   background-position: center;
@@ -122,11 +124,11 @@
 }
 
 .illustration--photo.illustration--dark::before {
-  background: linear-gradient(135deg, rgba(48, 54, 47, 0.45), rgba(32, 36, 28, 0.6));
+  background: linear-gradient(135deg, rgba(48, 54, 47, 0.28), rgba(32, 36, 28, 0.4));
 }
 
 .illustration--photo.illustration--orange::before {
-  background: linear-gradient(135deg, rgba(238, 96, 28, 0.35), rgba(179, 62, 9, 0.5));
+  background: linear-gradient(135deg, rgba(238, 96, 28, 0.22), rgba(179, 62, 9, 0.32));
 }
 
 .illustration__credit {
@@ -183,7 +185,8 @@
 }
 
 .showcase-grid .illustration {
-  min-height: 18rem;
+  max-width: 26rem;
+  margin-inline: auto;
 }
 
 .eyebrow {
@@ -200,10 +203,16 @@
 
 @media (min-width: 900px) {
   .showcase-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
+  }
+  .showcase-grid--reverse {
+    grid-template-columns: 1fr 1.3fr;
   }
   .showcase-grid--reverse .illustration {
     order: 2;
+  }
+  .showcase-grid .illustration {
+    max-width: none;
   }
 }
 
@@ -211,15 +220,14 @@
   margin-top: 3rem;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr;
-}
-
-.services-hero-strip__panel {
-  min-height: 12rem;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 40rem;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .services-hero-strip {
     grid-template-columns: repeat(3, 1fr);
+    max-width: none;
   }
 }
